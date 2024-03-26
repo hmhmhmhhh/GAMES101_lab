@@ -39,10 +39,28 @@ int main(){
     // matrix output
     std::cout << "Example of output \n";
     std::cout << i << std::endl;
-    // matrix add i + j
-    // matrix scalar multiply i * 2.0
-    // matrix multiply i * j
-    // matrix multiply vector i * v
 
+    //1)
+    std::cout << "matrix add i + j\n";
+    std::cout << i + j << std::endl;
+    //2)
+    std::cout << "matrix scalar multiply i * 2.0\n";
+    std::cout << i * 2.0f << std::endl;
+    //3)
+    std::cout << "matrix multiply i * j\n";
+    std::cout << i * j << std::endl;
+    //4)横列不符合的话会报错
+    std::cout << "matrix multiply vector i * v\n";
+    std::cout << i * v << std::endl;
+
+    //5)作业
+    Eigen::Matrix3f r, t;
+    r << std::cos(45), std::sin(-45), 0, std::sin(45), std::cos(45), 0, 0, 0, 1;
+    t << 1, 0, 1, 0, 1, 2, 0, 0, 1;
+    Eigen::Vector3f p;
+    p << 2, 1, 1;
+    p = r * p;
+    p = t * p;
+    std::cout << "p点最终位置:\n" << p <<std::endl;
     return 0;
 }
